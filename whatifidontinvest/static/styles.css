@@ -1,0 +1,95 @@
+{% load static%}
+
+.jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #1abc9c;
+  border-radius: 0 !important;
+  display: grid;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.top_image {
+  background-color: #1abc9c;
+  border-radius: 0 !important;
+  display: grid;
+}
+
+.main-container {
+
+}
+.page-background {
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url( 'stocks_background.jpg');
+    background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron h1 {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 60rem;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+
+/* credits:
+https://nicolaskadis.info/posts/pure-css-flip-cards-using-bootstrap-4-and-css-grid-no-js
+https://www.w3schools.com/howto/howto_css_flip_card.asp
+ */
+
+/* Fliping a card */
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  /* Remove this if you don't want the 3D effect */
+  display: grid; grid-template: 1fr / 1fr;
+ grid-template-areas: "frontAndBack";
+ transition: transform 0.8s;
+ transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+ transform: rotateY(180deg);
+}
+
+.flip-card-front {
+  transform: rotateY(0deg);
+  grid-area: frontAndBack;
+}
+
+.flip-card-back {
+  grid-area: frontAndBack;
+  transform: rotateY(180deg);
+}
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+    transform-style: preserve-3d;
+
+}

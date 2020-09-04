@@ -1,0 +1,157 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Rashmi Jasinghe">
+    <title>What if I don't invest?</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      body {
+    font-family: 'Alegreya', serif;
+  }
+    </style>
+        <!-- Custom styles for this template -->
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+    <header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container" >
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-white">
+            All information is borrowed from various reputable sources.
+            </p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Contact</h4>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Follow on Twitter</a></li>
+            <li><a href="#" class="text-white">Like on Facebook</a></li>
+            <li><a href="#" class="text-white">Email me</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between" style="max-width:90%;">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <img src="{% static 'chart_up_arrow.svg' %}"  width="30" height="30">
+        <strong>What if I don't invest?</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main role="main">
+    <div class="row">
+  <section class="jumbotron text-center col-md-7 align-items-center py-5">
+    <div class="container text-white  animated fadeInLeft  align-items-center">
+
+      <h1 style="font-size: 75px;"><b>Investing sounds scary!?!?</b></h1>
+      <div class="text-justify align-items-center">
+      <h4 >
+        This investing thing is too hard and too risky for me, I'm just going to keep everything in a savings accout. How much could you lose out?
+        This site brings <i>Nobel prize winning &trade; </i> research to show that even the most basic investing method (ETFs) can yield pretty good returns.
+      </h4>
+    </div>
+      <!-- <p>
+        <a href="#" class="btn btn-primary my-2">Main call to action</a>
+        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+      </p> -->
+    </div>
+  </section>
+
+  <div class="col-md-5 top_image align-items-center py-5">
+    <div class="animated fadeInRight">
+    <img src="{% static 'chart.png' %}" style="max-width:75%; max-height:75%">
+  </div>
+  </div>
+</div>
+  <!--py-5: py means padding on the y axis, 5 is a value, 1-5 .. etc -->
+  <!-- bg-light is just a color , there for ex bg-success -->
+  <div class="main-container py-5 bg-dark">
+    <!-- rows must be in a container -->
+    <div class="container">
+
+      <div class="row">
+        <!-- col-md-4 is used by the grid system.
+            Used when device size is medium or > 768px.
+            Max width of container is 720px
+
+            the 4 means you want the width equal to 4 columns
+            increase or decrease the col width and Bootstrap
+            will automatically re order the cards
+
+            I set the width to be 12. The container fits a max about 12 columns per row
+            so this particular card takes up one entire row. Setting it to a really big value
+            would just take up the entire width and not go over
+
+            The max is 12
+
+            Might be outdated:
+            https://www.w3schools.com/bootstrap/bootstrap_grid_system.asp
+
+            additionally I made this particular car flippable
+      -->
+
+
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>&copy; Rashmi Jasinghe</p>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</html>
