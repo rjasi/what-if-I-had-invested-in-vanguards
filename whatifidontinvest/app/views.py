@@ -17,12 +17,12 @@ def compute(request):
         current_amount = float(data["current_amount"])
         interest_rate = float(data["interest_rate"])
         savings_result = calculate(current_age, retire_age, current_amount, interest_rate)
-        stock_market_result = calculate(current_age, retire_age, current_amount, interest_rate)
+        stock_market_result = calculate(current_age, retire_age, current_amount)
         difference = stock_market_result - savings_result
 
 
         return JsonResponse({
-            "savings_result":savings_result,
+            "savings_result": savings_result,
             "stock_market_result": stock_market_result,
             "difference": difference
          })

@@ -145,20 +145,52 @@
         </div>
 
 
-        <div class="col-md-4">
+        <div class="col-md-6">
           <div class="container text-white  align-items-center">
+            <h1 style="font-size: 60px;">
+              How are the gains calculated?
+            </h1>
+            <br>
+            <br>
+            <h2>
+              All calculations are based on WealthSimple's research
+              <a href="https://help.wealthsimple.com/hc/en-ca/articles/214187018-How-has-the-Growth-portfolio-performed-"> here </a>
+              <br>
+              <br>
+            Assumptions:
+            <ul>
+              <li> The average rate of return on ETFs is 7.3% based on historic values
+              <li> Taxes are not taken into account
+              <li> Your bank interest is normally around 2%
+              <li> Nobody can predict the market so nothing is guranteed
+              <li> Assumes your savings and stock portfolio account does not change. Meaning you do not add or take away cash
+            </ul>
+            </h2>
+            <br>
+            <br>
+            <div id="gains_text">
+              <h1 >
+                If you bought ETFs your total value would be:
+              </h1>
 
-            <div class="text-justify align-items-center">
-            <h4 >
-              This investing thing is too hard and too risky for me, I'm just going to keep everything in a savings account. How much could you lose out?
-              This site brings <i>Nobel prize winning &trade; </i> research to show that even the most basic investing method (ETFs) can yield pretty good returns.
-            </h4>
+              <h1 id="stock">
+              </h1>
+
+              <h1 >
+                If you just kept everything in a savings account:
+              </h1>
+
+              <h1 id="savings">
+              </h1>
           </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <script src="{% static 'number_incrementer.js' %}"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function(event) {
       var button = document.querySelector("#submit_button");
@@ -167,7 +199,36 @@
         xhr.onreadystatechange = function() {
           if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-              console.log("hello")
+              document.getElementById("gains_text").style.visibility = "visible";
+
+              function numberWithCommas(x) {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+              function animate_money(elem_id, result) {
+                let start // set on the first step to the timestamp provided
+                const el = document.getElementById(elem_id) // get the element
+                const final = parseInt(JSON.parse(xhr.responseText)[result], 10) // parse out the final number
+                const duration = 1000 // duration in ms
+                const step = ts => {
+                  if (!start) {
+                    start = ts
+                  }
+                  // get the time passed as a fraction of total duration
+                  let progress = (ts - start) / duration
+
+                  el.textContent = "$" + numberWithCommas(Math.floor(progress * final)) + "." // set the text
+                  if (progress < 1) {
+                    // if we're not 100% complete, request another animation frame
+                    requestAnimationFrame(step)
+                  }
+                }
+                // start the animation
+                requestAnimationFrame(step)
+              }
+
+              animate_money("stock", "stock_market_result")
+              animate_money("savings", "savings_result")
+
             } else {
               alert('There was a problem with the request.');
             }
@@ -189,11 +250,8 @@
         }));
       });
 
-
+       document.getElementById("gains_text").style.visibility = "hidden";
   });
-
-
-
 
   </script>
 
