@@ -35,6 +35,9 @@
         <link rel="stylesheet" href="{% static 'styles.css' %}">
   </head>
   <body>
+    <a name="#">
+      <div id="#"></div>
+    </a>
     <header>
   <div class="collapse bg-dark" id="navbarHeader">
     <div class="container" >
@@ -70,52 +73,79 @@
 </header>
 
 <main role="main">
-  <div class="container-fluid">
-    <div class="row">
-      <section class="jumbotron text-center col-md-6 align-items-center py-5">
-        <div class="container text-white  animated fadeInLeft  align-items-center">
 
+  <div class="container-fluid  d-flex min-vh-100 flex-column" >
+    <div class="row flex-fill " >
+      <section class="jumbotron text-center col-md-6 align-items-center py-5" >
+        <div class="container text-white  animated fadeInLeft  align-items-center" >
           <h1 style="font-size: 60px;"><b>Investing is overwhelming! 😤</b></h1>
           <div class="text-justify align-items-center">
           <h4 >
             This investing thing is too hard and too risky for me, I'm just going to keep everything in a savings account. How much could you lose out?
             This site brings <i>Nobel prize winning &trade; </i> research to show that even the most basic investing method (ETFs) can yield pretty good returns.
           </h4>
+
         </div>
-          <!-- <p>
-            <a href="#" class="btn btn-primary my-2">Main call to action</a>
-            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-          </p> -->
+        <a href="#mainsection" class="btn btn-default link-button">Show me how!</a>
+
         </div>
       </section>
 
       <div class="col-md-6 top_image align-items-center py-5">
         <div class="animated fadeInRight ">
-          <img src="{% static 'Different-Types-of-Investment-Stocks.png' %}" style="max-width:85%; max-height:75%">
+          <img src="{% static 'Different-Types-of-Investment-Stocks.png' %}" style="max-width:100%; max-height:100%">
         </div>
       </div>
     </div>
   </div>
   <!--py-5: py means padding on the y axis, 5 is a value, 1-5 .. etc -->
   <!-- bg-light is just a color , there for ex bg-success -->
-  <div class="main-container py-5 bg-dark">
+    <a name="mainsection">
+      <div id="mainsection"></div>
+    </a>
+  <div class="main-container py-5 px-5 bg-dark d-flex min-vh-100 flex-column">
     <!-- rows must be in a container -->
-    <div class="container py-5">
+    <div class="container-fluid py-5">
 
       <div class="row">
 
         <div class="col-md-6">
           <div class="container text-white  align-items-center">
 
+            <h1 style="font-size: 60px;">
+              Tell me about yourself
+            </h1>
             <div class="text-justify align-items-center">
-            <h4 >
-              This investing thing is too hard and too risky for me, I'm just going to keep everything in a savings account. How much could you lose out?
-              This site brings <i>Nobel prize winning &trade; </i> research to show that even the most basic investing method (ETFs) can yield pretty good returns.
-            </h4>
+            <h1 >
+
+              <div class="md-form form-lg  ">
+                I am
+                <input type="text" id="inputSMEx" class="text-white" style="max-width:40px;">
+                years old.
+              </div>
+              <div class="md-form form-lg  ">
+                I plan to retire at the age of
+                <input type="text" id="inputSMEx" class="text-white" style="max-width:40px;">.
+              </div>
+              <div class="md-form form-lg  ">
+                I have $
+                <input type="text" id="inputSMEx" class="text-white" style="max-width:100px;">
+                in my savings account now.
+              </div>
+              <div class="md-form form-lg  ">
+                My savings account currently gives me an interest rate of &nbsp;
+                 	&#37; <input type="text" id="inputSMEx" class="text-white" style="max-width:40px;">
+              </div>
+              <br>
+              <br>
+              <button type="button" class="btn btn-default submit-button">Calculate my gains!</button>
+              </h1>
           </div>
           </div>
         </div>
-        <div class="col-md-6">
+
+
+        <div class="col-md-4">
           <div class="container text-white  align-items-center">
 
             <div class="text-justify align-items-center">
@@ -131,8 +161,8 @@
   </div>
 </main>
 
-<footer class="text-muted">
-  <div class="container">
+<footer class="text-muted bg-dark">
+  <div class="container ">
     <p class="float-right">
       <a href="#">Back to top</a>
     </p>
