@@ -1,6 +1,6 @@
 # What if I don't invest?
 
-Disclaimer: I'm not a financial expert so all this information could not be 100% accurate!
+**Disclaimer: I'm not a financial expert so all this information could very well be wrong!**
 
 ![Demo](img/demo.gif)
 
@@ -16,3 +16,11 @@ then computes the potential value of the stock portfolio if you invested in ETFs
 stated by WealthSimple
 
 # Technology stack
+
+Frontend 
+* (Bootstrap 4.0)[https://getbootstrap.com/] and (mdBootstrap)[https://mdbootstrap.com/] for some animations
+* Vanilla JavaScript for some basic DOM manipulation 
+
+Backend
+* Django 
+* Python
