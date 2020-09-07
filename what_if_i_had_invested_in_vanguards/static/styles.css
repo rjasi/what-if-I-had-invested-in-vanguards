@@ -34,6 +34,40 @@ html {
   display: grid;
 }
 
+
+
+/*
+https://stackoverflow.com/questions/23530231/contenteditable-true-height-issue-in-firefox/23530317#23530317
+Small hack for contenteditable because you cannot select an empty one
+\feff is just a blank no space character
+
+This could also work
+[contenteditable='true']:before {
+    content: "\feff";
+}
+*/
+[contenteditable='true']:after {
+    content: "\feff";
+}
+
+
+[contenteditable] {
+    outline: 0px solid transparent;
+    border-bottom: 1px solid #ced4da;
+    overflow: hidden;
+    display: inline-flex;
+    min-width: 30px;
+    max-width: 150px;
+}
+
+
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+    transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
+    border-bottom: 1px solid #007bff;
+
+}
+
 .main-container {
 
 }

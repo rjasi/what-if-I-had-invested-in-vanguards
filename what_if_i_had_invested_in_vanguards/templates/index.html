@@ -120,21 +120,26 @@
 
               <div class="md-form form-lg  ">
                 I am
-                <input type="text" id="cur_age" class="text-white" style="max-width:40px;">
+                <span id="cur_age" contenteditable="true"></span>
                 years old.
               </div>
               <div class="md-form form-lg  ">
                 I plan to cash out at the age of
-                <input type="text" id="cashout_age" class="text-white" style="max-width:40px;">.
+                <span id="cashout_age" contenteditable="true"></span>.
               </div>
               <div class="md-form form-lg  ">
                 I have $
-                <input type="text" id="amount" class="text-white" style="max-width:100px;">
+                <span id="amount" contenteditable="true"></span>.
                 in my savings account now.
               </div>
               <div class="md-form form-lg">
                 My savings account currently gives me an interest rate of &nbsp;
-                 	&#37; <input type="text" id="interest" class="text-white" style="max-width:70px;">
+                 	&#37;
+                  <!-- Note: Was using a div before but that inserted a <br> in the text. This caused some weird displays
+                    https://stackoverflow.com/questions/14638887/br-is-inserted-into-contenteditable-html-element-if-left-empty
+                 -->
+                    <span id="interest" contenteditable="true">
+                    </span>.
               </div>
               <br>
               <br>
@@ -168,7 +173,7 @@
             </ul>
             </h2>
           </div>
-
+5
             <div id="gains_text">
               <h1 >
                 If you bought ETFs your total value would be:
@@ -198,6 +203,7 @@
   <script src="{% static 'number_incrementer.js' %}"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function(event) {
+      document.body.setAttribute('spellcheck', false);
       var button = document.querySelector("#submit_button");
       button.addEventListener("click", function() {
         var xhr = new XMLHttpRequest();
@@ -205,11 +211,14 @@
           if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
               document.getElementById("gains_text").style.visibility = "visible";
-              document.getElementById("information").remove();
+              let info_box = document.getElementById("information")
+              if (info_box != null) {
+                info_box.remove();
+              }
 
               function numberWithCommas(x) {
                 return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            }
+              }
               function animate_money(elem_id, result) {
                 let start // set on the first step to the timestamp provided
                 const el = document.getElementById(elem_id) // get the element
@@ -240,10 +249,11 @@
             }
           }
         };
-        var cur_age = document.getElementById("cur_age").value
-        var ret_age = document.getElementById("cashout_age").value
-        var amount = document.getElementById("amount").value
-        var interest = document.getElementById("interest").value
+
+        var cur_age = document.getElementById("cur_age").textContent
+        var ret_age = document.getElementById("cashout_age").textContent
+        var amount = document.getElementById("amount").textContent
+        var interest = document.getElementById("interest").textContent
 
         xhr.open('POST', '/compute/');
         xhr.setRequestHeader('Content-Type', 'application/json');
@@ -256,7 +266,18 @@
         }));
       });
 
+        // Hide where the result would be put after user submits their info
        document.getElementById("gains_text").style.visibility = "hidden";
+
+       // Disable the ability to add linebreaks when user presses enter!
+       document.querySelectorAll('[contenteditable=true]').forEach((editable, i) => {
+         editable.addEventListener('keypress', (evt) => {
+            if (evt.which === 13) {
+                evt.preventDefault();
+            }
+        });
+       });
+
   });
 
   </script>
