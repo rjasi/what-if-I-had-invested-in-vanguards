@@ -222,16 +222,17 @@
                 let start // set on the first step to the timestamp provided
                 const el = document.getElementById(elem_id) // get the element
                 const final = parseInt(JSON.parse(xhr.responseText)[result], 10) // parse out the final number
+                console.log(final)
                 const duration = 1000 // duration in ms
                 const step = ts => {
                   if (!start) {
                     start = ts
                   }
                   // get the time passed as a fraction of total duration
-                  let progress = (ts - start) / duration
-
+                  // Take min of progress and 1 so we don't go ever
+                  let progress = Math.min((ts - start) / duration, 1)
                   el.textContent = "$" + numberWithCommas(Math.floor(progress * final)) + "." // set the text
-                  if (progress < 1) {
+                  if (progress <= 1) {
                     // if we're not 100% complete, request another animation frame
                     requestAnimationFrame(step)
                   }
