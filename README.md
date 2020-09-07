@@ -8,7 +8,7 @@ Lets say you have some money, how much could you benefit if you put that into a 
 
 This is just a site inspired by my own personal experience of learning about investing.
 
-I built this as a responsive bootstrap website.
+I built and designed this as a one page responsive bootstrap website.
 
 # Demo
 Gif is a bit choppy due to recording software. Much smoother in person.
