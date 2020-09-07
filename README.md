@@ -45,14 +45,12 @@ In the main directory:
 
 # TODO
 
-* Need to work on re sizing for smaller screens
+* Need to work on re-sizing for smaller screens
 
 * The html code was hastily put together so there are some parts of it that could be cleaned
 
 * Move the JS code into a separate folder
 
 * Implement django forms for user input, right now it it is just sending a post request without input validation
-
-* Make the user input fields's width growth as the input gets bigger
 
 * dockerize the application for quick deployment
