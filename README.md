@@ -11,6 +11,7 @@ This is just a site inspired by my own personal experience of learning about inv
 I built this as a responsive bootstrap website.
 
 # Demo
+Gif is a bit choppy due to recording software. Much smoother in person.
 
 ![Demo](img/demo.gif)
 
