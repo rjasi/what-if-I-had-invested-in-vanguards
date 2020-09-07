@@ -124,17 +124,17 @@
                 years old.
               </div>
               <div class="md-form form-lg  ">
-                I plan to retire at the age of
-                <input type="text" id="ret_age" class="text-white" style="max-width:40px;">.
+                I plan to cash out at the age of
+                <input type="text" id="cashout_age" class="text-white" style="max-width:40px;">.
               </div>
               <div class="md-form form-lg  ">
                 I have $
                 <input type="text" id="amount" class="text-white" style="max-width:100px;">
                 in my savings account now.
               </div>
-              <div class="md-form form-lg  ">
+              <div class="md-form form-lg">
                 My savings account currently gives me an interest rate of &nbsp;
-                 	&#37; <input type="text" id="interest" class="text-white" style="max-width:40px;">
+                 	&#37; <input type="text" id="interest" class="text-white" style="max-width:70px;">
               </div>
               <br>
               <br>
@@ -147,27 +147,28 @@
 
         <div class="col-md-6">
           <div class="container text-white  align-items-center">
+            <div id="information">
             <h1 style="font-size: 60px;">
               How are the gains calculated?
             </h1>
             <br>
             <br>
             <h2>
-              All calculations are based on WealthSimple's research
-              <a href="https://help.wealthsimple.com/hc/en-ca/articles/214187018-How-has-the-Growth-portfolio-performed-"> here </a>
+              Actual information based on Canadian Couch Potato's research
+              <a href="https://cdn.canadiancouchpotato.com/wp-content/uploads/2020/01/CCP-Model-Portfolios-Vanguard-ETFs-2019.pdf">here.</a>
               <br>
               <br>
             Assumptions:
             <ul>
-              <li> The average rate of return on WealthSimple's portfolio is 7.3% based on historic values
+              <li> The historic 25 year average rate of return from the Vanguard Conservative Income ETF Portfolio is 6.38%.
               <li> Taxes are not taken into account
-              <li> Your bank interest is normally around 2%
+              <li> Your bank's savings account interest is normally way lower than the yield of ETFs
               <li> Nobody can predict the market so nothing is guranteed
-              <li> Assumes your savings and stock portfolio account does not change. Meaning you do not add or take away cash
+              <li> Assumes your savings and stock portfolio account does not change. Meaning you do not add or take away cash.
             </ul>
             </h2>
-            <br>
-            <br>
+          </div>
+
             <div id="gains_text">
               <h1 >
                 If you bought ETFs your total value would be:
@@ -182,6 +183,10 @@
 
               <h1 id="savings">
               </h1>
+              <br>
+              <br>
+              <img src="{% static 'stonks.jpg' %}" style="max-width:100%; max-height:100%">
+
           </div>
 
           </div>
@@ -200,6 +205,7 @@
           if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
               document.getElementById("gains_text").style.visibility = "visible";
+              document.getElementById("information").remove();
 
               function numberWithCommas(x) {
                 return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -235,7 +241,7 @@
           }
         };
         var cur_age = document.getElementById("cur_age").value
-        var ret_age = document.getElementById("ret_age").value
+        var ret_age = document.getElementById("cashout_age").value
         var amount = document.getElementById("amount").value
         var interest = document.getElementById("interest").value
 
@@ -244,7 +250,7 @@
         xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
         xhr.send(JSON.stringify({
           "current_age": cur_age,
-          "retire_age": ret_age,
+          "cashout_age": ret_age,
           "current_amount": amount,
           "interest_rate": interest
         }));

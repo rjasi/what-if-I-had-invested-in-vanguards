@@ -13,11 +13,11 @@ def compute(request):
         # TODO put into a django form
         data = json.loads(request.body)
         current_age = int(data["current_age"])
-        retire_age = int(data["retire_age"])
+        cashout_age = int(data["cashout_age"])
         current_amount = float(data["current_amount"])
         interest_rate = float(data["interest_rate"])
-        savings_result = calculate(current_age, retire_age, current_amount, interest_rate)
-        stock_market_result = calculate(current_age, retire_age, current_amount)
+        savings_result = calculate(current_age, cashout_age, current_amount, interest_rate)
+        stock_market_result = calculate(current_age, cashout_age, current_amount)
         difference = stock_market_result - savings_result
 
 

@@ -1,14 +1,12 @@
 # What if I had invested in Vanguards??
 
 
-**Disclaimer: I'm not a financial expert so all this information could very well be wrong!**
+**Disclaimer: All values are based on previous historic numbers so it is not a gurantee that you invested now you'd get the same returns. You can't predict the future!**
 
 
 Lets say you have some money, how much could you benefit if you put that into a Vanguards account instead of your bank's standard savings account?
 
-This is just a site inspired by my own personal experience of learning about investing
-
-
+This is just a site inspired by my own personal experience of learning about investing.
 
 
 # Demo
@@ -18,11 +16,10 @@ Note some text in the demo is a bit outdated but haven't had the time to update 
 
 
 
-
 # How does it work?
 
-Actual information based on WealthSimple [here](https://help.wealthsimple.com/hc/en-ca/articles/214187018-How-has-the-Growth-portfolio-performed-) so credits to them. This website takes in what free cash you have and
-then computes the potential value of the stock portfolio if you invested in WealthSimple based on the average rate of return stated by them. I used their Growth Portfolio's percentages.
+Actual information based on Canadian Couch Potato's research [here](https://cdn.canadiancouchpotato.com/wp-content/uploads/2020/01/CCP-Model-Portfolios-Vanguard-ETFs-2019.pdf) so credits to them. This website takes in what free cash you have and
+then computes the potential value of the stock portfolio if you invested in the Vanguard Conservative Income ETF Portfolio based on the average rate of return stated by them.
 
 # Technology stack
 
@@ -36,6 +33,14 @@ Frontend
 Backend
 * Django
 * Python
+
+# How to run
+In the main directory:
+`pythom manage.py runserver`
+
+# Bugs
+
+* For some reason the landing page's image does not show up on Chrome
 
 # TODO
 
